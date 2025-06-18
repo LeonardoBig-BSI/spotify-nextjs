@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { getAllSongs } from "../../../../api/songs";
 import { getAllArtists } from "../../../../api/artists";
 import Link from "next/link";
-import PlayerSong from "@/app/components/PlayerSong";
+import PlayerSong from "@/components/PlayerSong/PlayerSong";
 
 interface SongProps {
     _id: string;

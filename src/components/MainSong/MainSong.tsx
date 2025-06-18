@@ -1,7 +1,7 @@
 'use client'
 
-import { getAllSongs } from "../../../../api/songs";
-import ItemListSong from "../ItemListSongs";
+import { getAllSongs } from "../../../api/songs";
+import ItemListSong from "../ItemListSongs/ItemListSongs";
 
 interface TypeProps {
     type: string;

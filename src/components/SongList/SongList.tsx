@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SongItem from "../SongItem/page";
+import SongItem from "../SongItem/SongItem";
 
 interface SongProps {
     _id: string;

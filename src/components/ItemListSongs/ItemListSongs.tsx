@@ -3,43 +3,45 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import SingleItemArtist from "../SingleItemArtist";
+import SingleItemSong from "../SingleItemSong/SingleItemSong";
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 
-interface ArtistProps {
+interface SongProps {
     _id: string;
     image: string;
     name: string;
-    banner: string;
+    duration: string;
+    artist: string;
+    audio: string;
 }
 
 interface TypeProps {
     title: string;
     items: number;
-    itemsArray: () => Promise<ArtistProps[]>
+    itemsArray: () => Promise<SongProps[]>
     path: string;
     idPath: string;
 }
 
-export default function ItemListArtist({ title, items, itemsArray, path, idPath }:TypeProps) {
+export default function ItemListSong({ title, items, itemsArray, path, idPath }:TypeProps) {
     const pathname = usePathname()
     console.log(pathname)
 
     const isHome = pathname === "/"
     const finalItems = isHome ? items : Infinity
 
-    const [artists, setArtists] = useState<ArtistProps[]>([])
+    const [songs, setSongs] = useState<SongProps[]>([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         itemsArray()
             .then((data) => {
-                setArtists(data)
+                setSongs(data)
                 setLoading(false)
             })
             .catch((error) => {
-                console.log(`Error loading artists: ${error}`)
+                console.log(`Error loading songs: ${error}`)
                 setLoading(false)
             })
     }, [itemsArray])
@@ -51,7 +53,7 @@ export default function ItemListArtist({ title, items, itemsArray, path, idPath 
                     color: 'grey.500',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    height: '20vh'
+                    height: '90vh',
                 }}
                 spacing={2}
                 direction="row"
@@ -75,13 +77,13 @@ export default function ItemListArtist({ title, items, itemsArray, path, idPath 
             </div>
 
             <div className="grid grid-cols-[repeat(auto-fit,_minmax(172px,_1fr))]">
-                {artists
+                {songs
                     .filter((_currentValue, index) => index < finalItems)
-                    .map((artist) => (
-                        <SingleItemArtist
-                            {...artist}
+                    .map((song) => (
+                        <SingleItemSong
+                            {...song}
                             idPath={idPath}
-                            key={artist._id}
+                            key={song._id}
                         />
                     ))}
             </div>

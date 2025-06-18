@@ -1,4 +1,4 @@
-import MainSong from "../components/MainSong";
+import MainSong from "../../components/MainSong/MainSong";
 
 
 export default function Songs() {

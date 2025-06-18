@@ -6,7 +6,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { useEffect, useState } from "react"
 import { getAllArtists } from "../../../../api/artists";
 import { useParams } from "next/navigation";
-import SongList from "@/app/components/SongList";
+import SongList from "@/components/SongList/SongList";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";

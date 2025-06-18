@@ -1,4 +1,4 @@
-import MainArtist from "../components/MainArtist";
+import MainArtist from "../../components/MainArtist/MainArtist";
 
 
 export default function Artists() {
