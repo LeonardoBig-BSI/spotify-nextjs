@@ -8,7 +8,7 @@ export const fetchFromAPI = async (endpoint: string) => {
       return await response.data;
     } 
     catch (error) {
-      console.error(`API error: ${error}`);
+      console.error("API error: ", error);
       throw error;
     }
   };
